@@ -81,15 +81,15 @@ function App() {
           <h2>My Prodjects: </h2>
           <div className='project'>
             <div className='link'>
-              <a id='travel' href='./deco/build/index.html' target='blank'><img src='https://images.pexels.com/photos/12825195/pexels-photo-12825195.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt></img></a>
+              <a id='travel' href='https://b-na.github.io/travel_photography_blog/' target='blank'><img src='./Projects/travel_photography_blog.png' alt=""></img></a>
             </div>
-            <a href='./deco/build/index.html'><p>Travel Photographer</p></a>
+            <a href='https://b-na.github.io/travel_photography_blog/'><p>Travel Photographer</p></a>
           </div>
           <div className='project'>
             <div className='link'>
-              <a id='deco' href='./photo/build/index.html' target='blank'><img src='https://images.pexels.com/photos/12825195/pexels-photo-12825195.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt></img></a>
+              <a id='deco' href='https://b-na.github.io/furniture_store/' target='blank'><img src='./Projects/funrniture_store.png' alt=""></img></a>
             </div>
-            <a href='./photo/build/index.html'><p>Furniture Store</p></a>
+            <a href='https://b-na.github.io/furniture_store/'><p>Furniture Store</p></a>
           </div>
         </div>
       </section>
