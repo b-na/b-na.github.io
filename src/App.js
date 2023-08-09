@@ -81,13 +81,13 @@ function App() {
           <h2>My Prodjects: </h2>
           <div className='project'>
             <div className='link'>
-              <a id='travel' href='https://b-na.github.io/travel_photography_blog/' target='blank'><img src='./Projects/travel_photography_blog.png' alt></img></a>
+              <a id='travel' href='https://b-na.github.io/travel_photography_blog/' target='blank'><img src='./Projects/travel_photography_blog.png' alt=""></img></a>
             </div>
             <a href='https://b-na.github.io/travel_photography_blog/'><p>Travel Photographer</p></a>
           </div>
           <div className='project'>
             <div className='link'>
-              <a id='deco' href='https://b-na.github.io/furniture_store/' target='blank'><img src='./Projects/funrniture_store.png' alt></img></a>
+              <a id='deco' href='https://b-na.github.io/furniture_store/' target='blank'><img src='./Projects/funrniture_store.png' alt=""></img></a>
             </div>
             <a href='https://b-na.github.io/furniture_store/'><p>Furniture Store</p></a>
           </div>
