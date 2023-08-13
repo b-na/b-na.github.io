@@ -50,31 +50,37 @@ a, #switch {
 
 body {
   position: relative;
-  width: 100%;
-  height: 100%;
-  cursor: url("./cursor-black.svg"), auto;
-  background: rgb(255, 217, 172);
-  background: linear-gradient(135deg, rgb(255, 199, 153) 0%, rgb(127, 199, 183) 50%, rgb(129, 167, 211) 100%);
-  background-size: 400% 400%;
-  animation: background_animation 20s ease infinite;
+  z-index: 0;
   width: 100%;
   height: -moz-max-content;
   height: max-content;
+  cursor: url("./cursor-black.svg"), auto;
+  background: rgb(255, 217, 172);
+  background: linear-gradient(135deg, rgb(150, 211, 255), rgb(181, 165, 255));
+  background-size: 400% 400%;
+  animation: background_animation 20s ease infinite;
 }
 body #up {
   position: absolute;
   top: 100vh;
   right: 0;
-  width: 80px;
+  bottom: 0;
+  width: 5rem;
   height: calc(100% - 100vh);
   font-size: 2rem;
+  pointer-events: none;
+}
+body #up a {
+  position: relative;
 }
 body #up #up-icon {
   position: sticky;
   top: 1vh;
+  right: 0;
   color: black;
-  padding: 20px;
+  padding: 1rem;
   z-index: 99;
+  pointer-events: all;
 }
 body #switch {
   position: fixed;
@@ -100,6 +106,7 @@ body #switch:hover {
   justify-content: space-between;
   align-items: flex-start;
   padding-bottom: 40px;
+  overflow-x: hidden;
 }
 #welcome #lines {
   position: absolute;
@@ -305,6 +312,7 @@ body #switch:hover {
   width: 70%;
   min-width: -moz-min-content;
   min-width: min-content;
+  max-width: 100%;
   height: -moz-max-content;
   height: max-content;
   background-color: rgba(255, 255, 255, 0);
@@ -325,7 +333,7 @@ body #switch:hover {
   height: -moz-max-content;
   height: max-content;
   border-radius: 5px;
-  padding: 30px;
+  padding: 30px 0;
 }
 #welcome #text-container h1 {
   margin: 1rem;
@@ -347,30 +355,28 @@ body #switch:hover {
   min-height: 100vh;
   padding: 20px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   font-size: 1.3rem;
 }
 #about #about-container {
-  width: 800px;
-  max-width: 90%;
+  width: 90%;
   height: -moz-max-content;
   height: max-content;
   flex-wrap: wrap;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: center;
   padding: 20px;
   margin: 0;
-  gap: 40px;
+  gap: 20px;
 }
 #about #about-container h2 {
   width: 100%;
 }
 #about #about-container #profile {
-  flex-grow: 1fr;
-  width: 40%;
-  min-width: 300px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -392,7 +398,7 @@ body #switch:hover {
   font-variant: small-caps;
 }
 #about #about-container #profile img {
-  width: 200px;
+  width: 100%;
   height: 200px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -402,9 +408,8 @@ body #switch:hover {
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 #about #about-container > p {
-  flex-grow: 1fr;
   width: 50%;
-  min-width: 300px;
+  min-width: 275px;
   margin: 0;
   text-align: justify;
 }
@@ -471,6 +476,9 @@ body #switch:hover {
 #tools #tools-container #tool-list #git-icon:hover {
   color: #f34f29;
 }
+#tools #tools-container #tool-list #github-icon:hover {
+  color: #2e0879;
+}
 #tools #tools-container::before {
   position: absolute;
   content: "";
@@ -499,19 +507,22 @@ body #switch:hover {
   height: -moz-max-content;
   height: max-content;
   min-height: 100vh;
-  padding: 90px;
+  padding: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   font-size: 1.5rem;
+  overflow-x: hidden;
 }
 #projects #projects-container {
-  width: 100%;
+  width: 90%;
+  min-width: -moz-min-content;
+  min-width: min-content;
   height: -moz-max-content;
   height: max-content;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
@@ -537,24 +548,37 @@ body #switch:hover {
   width: 300px;
   height: 300px;
   z-index: 5;
+  transition: scale 0.3s ease;
 }
 #projects #projects-container .project .link a {
+  position: relative;
   display: block;
   width: 100%;
   height: 100%;
   overflow: hidden;
   border-radius: 5px;
 }
+#projects #projects-container .project .link a .project-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.5;
+  transition: opacity 0.5s ease;
+}
 #projects #projects-container .project .link img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  transition: all 0.3s ease;
 }
-#projects #projects-container .project .link img:hover {
-  filter: brightness(1.05);
-  scale: 1.1;
+#projects #projects-container .project .link:hover {
+  scale: 1.05;
+}
+#projects #projects-container .project .link:hover a .project-overlay {
+  opacity: 0;
 }
 #projects #projects-container .project p {
   color: black;
@@ -565,24 +589,24 @@ body #switch:hover {
   border-radius: 5px;
   position: absolute;
   content: "";
-  background: rgb(255, 239, 172);
-  background-image: linear-gradient(var(--rotate), rgb(126, 67, 0) 0%, rgb(120, 0, 131) 100%);
+  background: rgb(255, 201, 107);
+  background: linear-gradient(var(--rotate), rgb(0, 132, 255) 0%, rgb(123, 0, 255) 100%);
   animation: spin 3s linear infinite;
 }
 #projects .link::before {
   z-index: -2;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
   filter: blur(5px);
 }
 #projects .link::after {
   z-index: -1;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
@@ -590,7 +614,7 @@ body #switch:hover {
   width: 100%;
   height: -moz-max-content;
   height: max-content;
-  min-height: 100vh;
+  min-height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -634,7 +658,7 @@ body #switch:hover {
 
 body.dark {
   background: rgb(6, 9, 60);
-  background-image: linear-gradient(135deg, rgb(24, 10, 58) 0%, rgb(17, 38, 66) 50%, rgb(63, 5, 66) 100%);
+  background: linear-gradient(135deg, rgb(24, 10, 58) 0%, rgb(17, 38, 66) 50%, rgb(63, 5, 66) 100%);
   background-size: 400% 400%;
   animation: background_animation 20s ease infinite;
   cursor: url("./cursor-white.svg"), auto;
@@ -657,11 +681,12 @@ body.dark #profile-container p {
   border-bottom-color: white !important;
 }
 body.dark .link::before, body.dark .link::after {
-  background-image: linear-gradient(var(--rotate), rgb(255, 136, 0) 0%, rgb(234, 0, 255) 100%) !important;
+  background: #5500ff !important;
+  background: linear-gradient(var(--rotate), rgb(51, 0, 255) 0%, rgb(255, 0, 179) 100%) !important;
   animation: spin 3s linear infinite;
 }
 body.dark .link::before {
-  filter: blur(15px) !important;
+  filter: blur(20px) !important;
 }
 body.dark #contact-container {
   background-color: #1a1a1a !important;

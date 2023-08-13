@@ -1,5 +1,4 @@
 import './App.css';
-import $ from 'jquery';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCss3Alt, faFacebook, faGitAlt, faGithub, faHtml5, faInstagram, faJsSquare, faReact, faSass} from '@fortawesome/free-brands-svg-icons';
 import { faChevronUp, faEnvelope, faSun } from '@fortawesome/free-solid-svg-icons'
@@ -16,11 +15,38 @@ function Nav() {
 }
 
 function App() {
-  $(function() {})
   let bodyClass = document.getElementsByTagName('body')[0].classList;
+
   function toggle_DarkMode (){
+    bodyClass[0] === 'dark' ? localStorage.setItem('dark', false) : localStorage.setItem('dark', true);
     bodyClass.toggle('dark');
   }
+
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    if (!(localStorage.hasOwnProperty('dark'))) {
+       bodyClass.add('dark');
+       localStorage.setItem('dark', true);
+    }
+  } else {
+    if (!(localStorage.hasOwnProperty('dark'))) {
+        bodyClass.remove('dark');
+        localStorage.setItem('dark', false);
+    }
+  }
+
+  if (localStorage.hasOwnProperty('dark')) {
+    if (localStorage.getItem('dark') === 'true') {
+       bodyClass.add('dark');
+    }
+    else if (localStorage.getItem('isDarkMode') === 'false') {
+       bodyClass.remove('dark');
+    }
+  }
+
+  if (!(localStorage.hasOwnProperty('dark'))) {
+    bodyClass.add('dark');
+  }
+
   return (
     <div className="App">
       <div id='up'><a href='#welcome'><FontAwesomeIcon id='up-icon' icon={faChevronUp} /></a></div>
@@ -73,6 +99,7 @@ function App() {
                 <div id='react'><FontAwesomeIcon className='tools-icon' id='react-icon' icon={faReact} /><p>React</p></div>
                 <div id='sass'><FontAwesomeIcon className='tools-icon' id='sass-icon' icon={faSass} /><p>Sass</p></div>
                 <div id='git'><FontAwesomeIcon className='tools-icon' id='git-icon' icon={faGitAlt} /><p>Git</p></div>
+                <div id='gitgub'><FontAwesomeIcon className='tools-icon' id='github-icon' icon={faGithub} /><p>GitHub</p></div>
             </div>
         </div>
       </section>
@@ -81,13 +108,13 @@ function App() {
           <h2>My Prodjects: </h2>
           <div className='project'>
             <div className='link'>
-              <a id='travel' href='https://b-na.github.io/travel_photography_blog/' target='blank'><img src='./Projects/travel_photography_blog.png' alt=""></img></a>
+              <a id='travel' href='https://b-na.github.io/travel_photography_blog/' target='blank'><img src='./Projects/travel_photography_blog.png' alt=""></img><div className='project-overlay' /></a>
             </div>
             <a href='https://b-na.github.io/travel_photography_blog/'><p>Travel Photography Blog</p></a>
           </div>
           <div className='project'>
             <div className='link'>
-              <a id='deco' href='https://b-na.github.io/furniture_store/' target='blank'><img src='./Projects/funrniture_store.png' alt=""></img></a>
+              <a id='deco' href='https://b-na.github.io/furniture_store/' target='blank'><img src='./Projects/funrniture_store.png' alt=""></img><div className='project-overlay' /></a>
             </div>
             <a href='https://b-na.github.io/furniture_store/'><p>Furniture Store</p></a>
           </div>
@@ -96,10 +123,10 @@ function App() {
       <section id='contact'>
         <div id='contact-container'>
           <p>Liked my projects? Contact me or just follow me on social media:</p>
-          <a href='mailto:binawagner.contact@gmail.com'><FontAwesomeIcon id='mail-icon' icon={ faEnvelope } /></a>
-          <a href='https://www.instagram.com/unicornbini'><FontAwesomeIcon id='insta-icon' icon={ faInstagram } /></a>
-          <a href='https://www.facebook.com/unicornbini'><FontAwesomeIcon id='fb-icon' icon={ faFacebook } /></a>
-          <a href='https://github.com/b-na'><FontAwesomeIcon id='github-icon' icon={ faGithub } /></a>
+          <a href='mailto:binawagner.contact@gmail.com' target='blanck'><FontAwesomeIcon id='mail-icon' icon={ faEnvelope } /></a>
+          <a href='https://www.instagram.com/unicornbini' target='blanck'><FontAwesomeIcon id='insta-icon' icon={ faInstagram } /></a>
+          <a href='https://www.facebook.com/unicornbini' target='blanck'><FontAwesomeIcon id='fb-icon' icon={ faFacebook } /></a>
+          <a href='https://github.com/b-na' target='blanck'><FontAwesomeIcon id='github-icon' icon={ faGithub } /></a>
         </div>
       </section>
     </div>
