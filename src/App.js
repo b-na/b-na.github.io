@@ -73,7 +73,7 @@ function App() {
         <div id='about-container'>
               <h2>About Me</h2>
               <div id='profile'>
-              <img src='my_photo_ai.png' alt=''></img>
+              <div id='photo-container'><img src='my_photo_ai.png' alt=''></img></div>
                   <div id='profile-container'>
                     <p><strong>Name: </strong></p><p>Bina</p>
                     <p><strong>Age: </strong></p><p>26</p>
