@@ -83,7 +83,7 @@ function App() {
             <div className='link'>
               <a id='travel' href='https://b-na.github.io/travel_photography_blog/' target='blank'><img src='./Projects/travel_photography_blog.png' alt=""></img></a>
             </div>
-            <a href='https://b-na.github.io/travel_photography_blog/'><p>Travel Photographer</p></a>
+            <a href='https://b-na.github.io/travel_photography_blog/'><p>Travel Photography Blog</p></a>
           </div>
           <div className='project'>
             <div className='link'>
