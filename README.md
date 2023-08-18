@@ -22,7 +22,7 @@ Here are some highlights from my portfolio:
 
 ## Skills
 
-- HTML5, CSS3, JavaScript
+- HTML5, CSS3, SASS, JavaScript
 - React.js
 - Responsive Web Design
 - Version Control (Git)
