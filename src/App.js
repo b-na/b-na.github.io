@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCss3Alt, faFacebook, faGitAlt, faGithub, faHtml5, faInstagram, faJsSquare, faReact, faSass} from '@fortawesome/free-brands-svg-icons';
@@ -15,52 +16,70 @@ function Nav() {
 }
 
 function App() {
-  let bodyClass = document.getElementsByTagName('body')[0].classList;
+
+  $(function() {
+  let bodyClass = $('body')[0].classList;
+  let body_bgc = $('body');
+  let dark_mode = $('.dark-element');
+  let light_mode = $('.light-element');
+
+  function toDark() {
+      localStorage.setItem('dark', true);
+      dark_mode.css("opacity", "1");
+      light_mode.css("opacity", "0");
+      body_bgc.css("backgroundColor", '#1a1a1a');
+  }
+  function toLight() {
+      localStorage.setItem('dark', false);
+      light_mode.css("opacity", "1");
+      dark_mode.css("opacity", "0");
+      body_bgc.css("backgroundColor", '#96d3ff');
+  }
 
   function toggle_DarkMode (){
-    bodyClass[0] === 'dark' ? localStorage.setItem('dark', false) : localStorage.setItem('dark', true);
+    bodyClass[0] === 'dark' ? toLight() : toDark();
     bodyClass.toggle('dark');
   }
 
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     if (!(localStorage.hasOwnProperty('dark'))) {
        bodyClass.add('dark');
-       localStorage.setItem('dark', true);
+       toDark();
     }
   } else {
     if (!(localStorage.hasOwnProperty('dark'))) {
         bodyClass.remove('dark');
-        localStorage.setItem('dark', false);
+        toLight();
     }
   }
 
   if (localStorage.hasOwnProperty('dark')) {
     if (localStorage.getItem('dark') === 'true') {
        bodyClass.add('dark');
+       toDark();
     }
-    else if (localStorage.getItem('isDarkMode') === 'false') {
+    else if (localStorage.getItem('dark') === 'false') {
        bodyClass.remove('dark');
+       toLight();
     }
   }
 
   if (!(localStorage.hasOwnProperty('dark'))) {
     bodyClass.add('dark');
+    toDark();
   }
+
+  $('#switch').on("click", toggle_DarkMode)
+})
 
   return (
     <div className="App">
       <div id='up'><a href='#welcome'><FontAwesomeIcon id='up-icon' icon={faChevronUp} /></a></div>
-      <FontAwesomeIcon id='switch' onClick={toggle_DarkMode} icon={faSun} />
+      <FontAwesomeIcon id='switch' icon={faSun} />
       <section id='welcome'>
-       <div id='lines' >
-        <div className='circle'></div>
-        <div className='circle'></div>
-        <div className='circle'></div>
-        <div className='circle'></div>
-        <div className='border-1'></div>
-        <div className='border-2'></div>
-       </div>
-       <div id='nav-bar'> <Nav /></div>
+        <div className='welcome-bg dark-element' />
+        <div className='welcome-bg light-element' />
+        <div id='nav-bar'> <Nav /></div>
         <div id='text-container'>
           <div class='text'>
               <h1>Welcome</h1>
@@ -90,6 +109,8 @@ function App() {
         </div>
       </section>
       <section id='tools'>
+        <div className='mouse dark-element'/>
+        <div className='mouse light-element'/>
         <div id='tools-container'>
             <h2>My Tools: </h2>
             <div id='tool-list'>
@@ -104,23 +125,29 @@ function App() {
         </div>
       </section>
       <section id='projects'>
+          <div class='projects-bg dark-element'></div>
+          <div class='projects-bg light-element'></div>
         <div id='projects-container'>
           <h2>My Prodjects: </h2>
           <div className='project'>
             <div className='link'>
               <a id='travel' href='https://b-na.github.io/travel_photography_blog/' target='blank'><img src='./Projects/travel_photography_blog.png' alt=""></img><div className='project-overlay' /></a>
+              <div className='shadow'></div>
             </div>
             <a href='https://b-na.github.io/travel_photography_blog/'><p>Travel Photography Blog</p></a>
           </div>
           <div className='project'>
             <div className='link'>
               <a id='deco' href='https://b-na.github.io/furniture_store/' target='blank'><img src='./Projects/funrniture_store.png' alt=""></img><div className='project-overlay' /></a>
+              <div className='shadow'></div>
             </div>
             <a href='https://b-na.github.io/furniture_store/'><p>Furniture Store</p></a>
           </div>
         </div>
       </section>
       <section id='contact'>
+        <div class='contact-bg dark-element'></div>
+        <div class='contact-bg light-element'></div>
         <div id='contact-container'>
           <p>Liked my projects? Contact me or just follow me on social media:</p>
           <a href='mailto:binawagner.contact@gmail.com' target='blanck'><FontAwesomeIcon id='mail-icon' icon={ faEnvelope } /></a>
