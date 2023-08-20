@@ -237,10 +237,9 @@ body {
         min-width: max-content;
         height: max-content;
         border-radius: 5px;
-        padding: 10px 0;
+        padding: 10px 0 30px 0;
         animation: slide-right 1s ease;
         z-index: 3;
-        translate: 0 -50%;
         transition: color 0.3s ease;
 
         @keyframes slide-right {
@@ -262,10 +261,10 @@ body {
 
         h1 {
             margin: 1rem;
-            font-size: 3rem;
+            font-size: 4.5rem;
             font-weight: 100;
             font-family: 'Chelsea Market', cursive;
-            max-width: 95vw;
+            max-width: calc(95vw - 2rem);
         }
 
         p {
@@ -273,7 +272,7 @@ body {
             font-size: 1.5rem;
             font-weight: 100;
             font-family: 'Chelsea Market', cursive;
-            max-width: 95vw;
+            max-width: calc(95vw - 2rem);
         }
 
     }
@@ -423,6 +422,8 @@ body {
         bottom: 30vh;
         right: 47%;
         width: 40%;
+        max-width: 700px;
+        max-height: 1200px;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -602,6 +603,8 @@ body {
         bottom: 20vh;
         right: 10vw;
         width: 40%;
+        max-width: 700px;
+        max-height: 2000px;
         background-size: cover;
         background-position: center;
         border-radius: 5px;
@@ -795,6 +798,8 @@ body {
         
         @media screen and (max-width: 450px) {
             .link .shadow { 
+                top: 0;
+                bottom: 0;
                 left: 0;
                 right: 0;
             }
