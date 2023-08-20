@@ -43,7 +43,7 @@
 }
 html {
   width: 100vw;
-  overflow-x: hidden;
+  background-color: #1a1a1a;
 }
 
 p, h2 {
@@ -53,7 +53,15 @@ p, h2 {
 
 h2 {
   font-variant: small-caps;
-  font-size: 2.7rem;
+  font-size: 4rem;
+  font-weight: bold;
+  color: black;
+  text-shadow: 0px 0px 5px rgb(255, 255, 255), 0px 0px 5px rgb(255, 255, 255);
+}
+@media screen and (max-width: 400px) {
+  h2 {
+    font-size: 11vw;
+  }
 }
 
 a, #switch {
@@ -68,10 +76,8 @@ body {
   height: -moz-max-content;
   height: max-content;
   cursor: url("./cursor-black.svg"), auto;
-  background: rgb(255, 217, 172);
-  background: linear-gradient(135deg, rgb(150, 211, 255), rgb(181, 165, 255));
-  background-size: 400% 400%;
-  animation: background_animation 20s ease infinite;
+  background: linear-gradient(0deg, rgb(150, 211, 255), rgb(203, 191, 255));
+  transition: all 0.9s ease;
 }
 body #up {
   position: absolute;
@@ -121,148 +127,29 @@ body #switch:hover {
   align-items: flex-start;
   padding-bottom: 40px;
 }
-#welcome #lines {
+#welcome h1, #welcome p, #welcome a {
+  text-shadow: 0px 0px 5px rgb(255, 255, 255), 0px 0px 5px rgb(255, 255, 255);
+}
+#welcome .welcome-bg {
   position: absolute;
-  top: 25%;
-  right: 25%;
-  width: 90vw;
-  height: 90vw;
-  max-width: 400px;
-  max-height: 400px;
-  border-radius: 50%;
-  transform-origin: center center;
-  z-index: -1;
+  top: 0;
+  bottom: -25vh;
+  right: 0;
+  left: 0;
+  -webkit-mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  transition: all 0.9s ease;
 }
-#welcome #lines .border-1 {
-  position: absolute;
-  top: 25%;
-  left: 25%;
-  bottom: 25%;
-  right: 25%;
-  content: "";
-  border-radius: 50%;
-  border: 1px dashed rgba(255, 255, 255, 0.281);
-  animation: scale-animation 3s ease infinite alternate, circle-spin linear 8s infinite;
+#welcome .dark-element {
+  opacity: 1;
+  background-image: url("https://cdn.discordapp.com/attachments/1142406888781254658/1142434060111724604/bi._.na_night_cyberpunk_city_floating_in_the_sky_blue_and_viole_1f55fae5-4bad-4835-a8c5-82c2574ed6ec.png");
 }
-#welcome #lines .border-1::before {
-  content: "";
-  position: absolute;
-  top: 29px;
-  bottom: 29px;
-  right: 29px;
-  left: 29px;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-}
-#welcome #lines .border-1::after {
-  content: "";
-  top: -5px;
-  left: -5px;
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background-color: rgb(255, 255, 255);
-}
-#welcome #lines .border-2 {
-  position: absolute;
-  top: 22%;
-  left: 22%;
-  bottom: 22%;
-  right: 22%;
-  content: "";
-  border-radius: 50%;
-  border: 1px dotted rgba(255, 255, 255, 0.692);
-  animation: scale-animation 1.5s linear infinite alternate-reverse, circle-spin linear 8s infinite reverse;
-}
-#welcome #lines .border-2::before {
-  content: "";
-  position: absolute;
-  top: 32px;
-  bottom: 32px;
-  right: 32px;
-  left: 32px;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-}
-#welcome #lines .border-2::after {
-  content: "";
-  top: -10px;
-  left: -10px;
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: black;
-}
-#welcome #lines .circle {
-  z-index: 1;
-  width: 50px;
-  height: 50px;
-  padding: 0px;
-  border-radius: 50%;
-  border: 1px solid white;
-  animation: scale-animation 3s ease-in-out infinite alternate, circle-spin 3s linear infinite;
-}
-#welcome #lines .circle::before {
-  content: "";
-  position: absolute;
-  top: -5px;
-  bottom: -5px;
-  right: -5px;
-  left: -5px;
-  border: 5px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  filter: blur(8px);
-}
-#welcome #lines .circle::after {
-  content: "";
-  top: 47%;
-  left: 47%;
-  right: 47%;
-  bottom: 47%;
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0);
-  border: 1px solid white;
-  transform: skew(10deg, 10deg);
-}
-#welcome #lines > :nth-child(1) {
-  position: absolute;
-  top: calc(50% - 25px);
-  right: calc(50% - 25px);
-  transform-origin: center 15%;
-}
-#welcome #lines > :nth-child(2) {
-  position: absolute;
-  top: calc(50% - 25px);
-  right: calc(50% - 25px);
-  transform-origin: center 85%;
-}
-#welcome #lines > :nth-child(3) {
-  position: absolute;
-  top: calc(50% - 25px);
-  right: calc(50% - 25px);
-  transform-origin: 85% center;
-}
-#welcome #lines > :nth-child(4) {
-  position: absolute;
-  top: calc(50% - 25px);
-  right: calc(50% - 25px);
-  transform-origin: 15% center;
-}
-@keyframes scale-animation {
-  0% {
-    scale: 1;
-  }
-  100% {
-    scale: 2.5;
-  }
-}
-@keyframes circle-spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+#welcome .light-element {
+  opacity: 0;
+  background-image: url("https://cdn.midjourney.com/9d0e88e2-f8dd-4aac-8a51-7c193c2804b7/0_3.png");
 }
 #welcome #nav-bar {
   display: flex;
@@ -324,14 +211,18 @@ body #switch:hover {
   }
 }
 #welcome #text-container {
-  width: 70%;
-  max-width: 100%;
+  position: relative;
+  max-width: 70%;
+  min-width: -moz-max-content;
+  min-width: max-content;
   height: -moz-max-content;
   height: max-content;
-  background-color: rgba(255, 255, 255, 0);
   border-radius: 5px;
   padding: 10px 0;
   animation: slide-right 1s ease;
+  z-index: 3;
+  translate: 0 -50%;
+  transition: color 0.3s ease;
 }
 @keyframes slide-right {
   0% {
@@ -352,7 +243,7 @@ body #switch:hover {
 }
 #welcome #text-container h1 {
   margin: 1rem;
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 100;
   font-family: "Chelsea Market", cursive;
   max-width: 95vw;
@@ -375,7 +266,7 @@ body #switch:hover {
     width: 100%;
   }
   #welcome #text-container h1 {
-    font-size: 10vw;
+    font-size: 8vw;
   }
   #welcome #text-container p {
     font-size: 6vw;
@@ -383,6 +274,8 @@ body #switch:hover {
 }
 
 #about {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: -moz-max-content;
   height: max-content;
@@ -392,6 +285,7 @@ body #switch:hover {
   align-items: flex-start;
   justify-content: center;
   font-size: 1.4rem;
+  margin: 50px 0;
 }
 #about #about-container {
   width: 90%;
@@ -403,7 +297,7 @@ body #switch:hover {
   justify-content: space-around;
   align-items: center;
   margin: 0;
-  gap: 20px;
+  gap: 40px;
 }
 #about #about-container h2 {
   width: 100%;
@@ -411,7 +305,7 @@ body #switch:hover {
 }
 #about #about-container #profile {
   width: 100%;
-  max-width: 300px;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -419,7 +313,7 @@ body #switch:hover {
   gap: 20px;
 }
 #about #about-container #profile #profile-container {
-  max-width: 300px;
+  max-width: 400px;
   display: grid;
   justify-content: center;
   grid-template-columns: 1fr 2fr;
@@ -442,8 +336,8 @@ body #switch:hover {
   height: 400px;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: 30%;
-     object-position: 30%;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
   border-radius: 2px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
@@ -476,10 +370,10 @@ body #switch:hover {
   margin: 0;
   text-align: justify;
 }
-@media screen and (max-width: 706.6666666667px) {
+@media screen and (max-width: 920px) {
   #about #about-container > p {
     width: 100%;
-    max-width: 300px;
+    max-width: 400px;
   }
 }
 @media screen and (max-width: 400px) {
@@ -494,6 +388,7 @@ body #switch:hover {
 }
 
 #tools {
+  position: relative;
   padding: 20px 10px;
   width: 100%;
   height: -moz-max-content;
@@ -502,13 +397,55 @@ body #switch:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: aline-items 0.9s ease;
+}
+#tools .mouse {
+  position: absolute;
+  top: -30vh;
+  bottom: 30vh;
+  right: 47%;
+  width: 40%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 0.9s ease;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+#tools .dark-element {
+  background-image: url("https://cdn.discordapp.com/attachments/1142406888781254658/1142494428259418152/bi._.na_digital_art_night_cyberpunk_tools_on_table_violet_and_b_c4dbdeac-de0c-4617-b2e1-45ce0d4a0d63.png");
+}
+#tools .light-element {
+  background-image: url("https://cdn.discordapp.com/attachments/1142406888781254658/1142540096587964476/bi._.na_digital_art_white_mouse_with_glasses_working_on_pc_069d82a8-30f6-449c-a9b0-2611c5f595a0.png");
+}
+#tools .mouse::before {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  top: 25px;
+  right: -25px;
+  left: 25px;
+  bottom: -25px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0);
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
 }
 #tools #tools-container {
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 500px;
   position: relative;
   display: flex;
   flex-direction: column;
   padding: 20px 20px;
   gap: 30px;
+  background-color: rgba(255, 255, 255, 0.192);
+  border-radius: 5px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  transform: translateX(20vw);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  transition: all 0.3s ease;
 }
 #tools #tools-container h2 {
   margin: 0;
@@ -556,7 +493,7 @@ body #switch:hover {
   color: #f34f29;
 }
 #tools #tools-container #tool-list #github-icon:hover {
-  color: #2e0879;
+  color: #622bcf;
 }
 #tools #tools-container::before {
   position: absolute;
@@ -568,6 +505,7 @@ body #switch:hover {
   border-top: 1px solid black;
   border-left: 1px solid black;
   z-index: -1;
+  border-radius: 5px 0 0 0;
 }
 #tools #tools-container::after {
   position: absolute;
@@ -579,63 +517,134 @@ body #switch:hover {
   border-bottom: 1px solid black;
   border-right: 1px solid black;
   z-index: -1;
+  border-radius: 0 0 5px 0;
 }
-@media screen and (min-height: 1000px) and (min-width: 750px) {
+@media screen and (max-width: 1050px) {
+  #tools {
+    align-items: flex-end;
+    padding: 10px 40px;
+  }
+  #tools .mouse {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: unset;
+    width: 95%;
+    max-width: 700px;
+  }
+  #tools .mouse::before {
+    right: 0;
+    left: 0;
+  }
+  #tools #tools-container {
+    transform: initial;
+  }
+}
+@media screen and (max-width: 750px) {
   #tools {
     align-items: center;
-    padding: 10px 40px;
+  }
+  #tools .mouse {
+    display: none;
   }
 }
 
 #projects {
+  position: relative;
   width: 100%;
   height: -moz-max-content;
   height: max-content;
-  min-height: 100vh;
-  padding: 20px 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
   font-size: 1.5rem;
-  overflow-x: hidden;
+  margin: 60px 0;
+  padding: 20px 0;
+}
+#projects .projects-bg {
+  position: absolute;
+  top: -25vh;
+  bottom: 20vh;
+  right: 10vw;
+  width: 40%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  transition: all 0.3s ease;
+}
+#projects .projects-bg::before {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  top: 25px;
+  right: -25px;
+  left: 25px;
+  bottom: -25px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0);
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+#projects .dark-element {
+  background-image: url("https://cdn.discordapp.com/attachments/1142406888781254658/1142743625403482143/bi._.na_digital_art_night_cyberpunk_violet_and_blue_neon_lights_7a53b408-ef1d-43eb-b240-4a9cbd5f9237.png");
+}
+#projects .light-element {
+  background-image: url("https://cdn.discordapp.com/attachments/1142406888781254658/1142761778095341568/bi._.na_digital_art_noon_cyberpunk_top-down_view_tools_and_engi_e281bf86-ba54-4e0b-be90-43694d20f961.png");
+}
+@media screen and (max-width: 1050px) {
+  #projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #projects .projects-bg {
+    top: 0;
+    bottom: 0;
+    right: unset;
+    width: 95%;
+    max-width: 700px;
+  }
+  #projects .projects-bg::before {
+    right: 0;
+    left: 0;
+  }
 }
 #projects #projects-container {
-  width: 90%;
+  position: relative;
+  z-index: 0;
+  width: 50%;
   min-width: -moz-min-content;
   min-width: min-content;
   height: -moz-max-content;
   height: max-content;
+  min-height: 90vh;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  padding: 20px 0;
+  margin: 20px 0;
   margin: 0;
   gap: 30px 40px;
+  border-radius: 5px;
 }
 #projects #projects-container h2 {
-  width: 100%;
   margin: 20px 10px;
 }
 #projects #projects-container .project {
+  position: relative;
   width: -moz-min-content;
   width: min-content;
   height: -moz-min-content;
   height: min-content;
-  border-radius: 2px;
   border-radius: 5px;
-  padding: 20px 0;
+  padding: 20px 10px;
   text-align: center;
 }
 #projects #projects-container .project .link {
   position: relative;
   width: 90vw;
-  height: 90vw;
-  max-width: 300px;
-  max-height: 300px;
-  z-index: 5;
+  height: 90vh;
+  max-width: 400px;
+  max-height: 400px;
+  z-index: 1;
   transition: scale 0.3s ease;
 }
 #projects #projects-container .project .link a {
@@ -662,18 +671,7 @@ body #switch:hover {
   -o-object-fit: cover;
      object-fit: cover;
 }
-#projects #projects-container .project .link:hover {
-  scale: 1.05;
-}
-#projects #projects-container .project .link:hover a .project-overlay {
-  opacity: 0;
-}
-#projects #projects-container .project p {
-  color: black;
-  margin: 20px 0 0 0;
-  font-family: "Chelsea Market", cursive;
-}
-#projects .link::before, #projects .link::after {
+#projects #projects-container .link::before, #projects #projects-container .link::after {
   border-radius: 5px;
   position: absolute;
   content: "";
@@ -681,7 +679,7 @@ body #switch:hover {
   background: linear-gradient(var(--rotate), rgb(0, 132, 255) 0%, rgb(123, 0, 255) 100%);
   animation: spin 3s linear infinite;
 }
-#projects .link::before {
+#projects #projects-container .link::before {
   z-index: -2;
   top: -2px;
   left: -2px;
@@ -689,7 +687,20 @@ body #switch:hover {
   bottom: -2px;
   filter: blur(5px);
 }
-#projects .link::after {
+#projects #projects-container .link .shadow {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  top: 15px;
+  right: -15px;
+  left: 15px;
+  bottom: -15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0);
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+#projects #projects-container .link::after {
   z-index: -1;
   top: -2px;
   left: -2px;
@@ -697,13 +708,56 @@ body #switch:hover {
   bottom: -2px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
+#projects #projects-container .link:hover {
+  scale: 1.05;
+}
+#projects #projects-container .link:hover .shadow {
+  top: 15px;
+  right: -5px;
+  left: 5px;
+  bottom: -15px;
+}
+#projects #projects-container .link:hover a .project-overlay {
+  opacity: 0;
+}
+#projects #projects-container p {
+  color: black;
+  text-shadow: 0px 0px 3px rgb(255, 255, 255), 0px 0px 3px rgb(255, 255, 255);
+  font-weight: bold;
+  padding: 20px 0;
+  font-family: "Chelsea Market", cursive;
+  border-radius: 5px;
+  background-color: rgba(95, 95, 95, 0.192);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  transition: all 0.3s ease;
+}
+#projects #projects-container p:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
 @media screen and (min-height: 1000px) and (min-width: 750px) {
-  #projects {
+  #projects #projects-container {
     justify-content: center;
+  }
+}
+@media screen and (max-width: 450px) {
+  #projects #projects-container .link .shadow {
+    left: 0;
+    right: 0;
+  }
+  #projects #projects-container p {
+    font-size: 6vw;
+  }
+}
+@media screen and (max-width: 750px) {
+  #projects .projects-bg {
+    display: none;
   }
 }
 
 #contact {
+  position: relative;
   width: 100%;
   padding: 30px 0;
   height: -moz-max-content;
@@ -716,6 +770,7 @@ body #switch:hover {
 }
 #contact #contact-container {
   max-width: 600px;
+  z-index: 0;
   width: 90%;
   height: -moz-max-content;
   height: max-content;
@@ -756,14 +811,33 @@ body #switch:hover {
   color: #3b5998;
 }
 #contact #contact-container #github-icon:hover {
-  color: #2e0879;
+  color: #622bcf;
+}
+#contact .contact-bg {
+  position: absolute;
+  z-index: -1;
+  top: -25vh;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 60%;
+  transition: all 0.9s ease;
+}
+#contact .light-element {
+  opacity: 0;
+  background-image: url("https://cdn.discordapp.com/attachments/1142406888781254658/1142466505469071482/bi._.na_clouds_and_water_0f88fdb9-a836-4f3a-9109-3b4c0668790b.png");
+}
+#contact .dark-element {
+  opacity: 1;
+  background-image: url("https://cdn.discordapp.com/attachments/1142406888781254658/1142476055903473805/bi._.na_night_clouds_water_violet_and_blue_neon_a4be3237-a70c-4aaf-96b1-faabd09b10e3.png");
 }
 
 body.dark {
-  background: rgb(6, 9, 60);
-  background: linear-gradient(135deg, rgb(24, 10, 58) 0%, rgb(17, 38, 66) 50%, rgb(63, 5, 66) 100%);
-  background-size: 400% 400%;
-  animation: background_animation 20s ease infinite;
+  background: linear-gradient(0deg, rgb(24, 10, 58) 0%, rgb(17, 38, 66) 50%, rgb(23, 1, 24) 100%);
   cursor: url("./cursor-white.svg"), auto;
 }
 body.dark a, body.dark #switch {
@@ -779,6 +853,15 @@ body.dark #up-icon, body.dark p, body.dark a, body.dark h1, body.dark h2 {
 body.dark #welcome #nav-bar a:hover {
   border-color: rgba(255, 255, 255, 0.116);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+body.dark #welcome p, body.dark #welcome h1 {
+  text-shadow: 0px 0px 5px rgb(0, 0, 0), 0px 0px 5px rgb(0, 0, 0);
+}
+body.dark #tools-container {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+body.dark #tools-container::after, body.dark #tools-container::before {
+  border-color: white !important;
 }
 body.dark #profile-container p {
   border-bottom-color: white !important;
@@ -798,6 +881,9 @@ body.dark .link::before, body.dark .link::after {
 }
 body.dark .link::before {
   filter: blur(20px) !important;
+}
+body.dark .project p, body.dark h2, body.dark #welcome a {
+  text-shadow: -3px -3px 8px rgb(132, 56, 255), 3px 3px 8px rgb(59, 56, 255) !important;
 }
 body.dark #contact-container {
   background-color: #1a1a1a !important;
