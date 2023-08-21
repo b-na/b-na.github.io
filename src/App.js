@@ -27,7 +27,7 @@ function App() {
       localStorage.setItem('dark', true);
       dark_mode.css("opacity", "1");
       light_mode.css("opacity", "0");
-      body_bgc.css("backgroundColor", '#180a3a');
+      body_bgc.css("backgroundColor", '#1a1a1a');
   }
   function toLight() {
       localStorage.setItem('dark', false);
