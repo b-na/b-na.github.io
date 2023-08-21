@@ -33,7 +33,7 @@ function App() {
       localStorage.setItem('dark', false);
       light_mode.css("opacity", "1");
       dark_mode.css("opacity", "0");
-      body_bgc.css("backgroundColor", '#96d3ff');
+      body_bgc.css("backgroundColor", '#cbbfff');
   }
 
   function toggle_DarkMode (){
@@ -131,14 +131,14 @@ function App() {
           <h2>My Prodjects: </h2>
           <div className='project'>
             <div className='link'>
-              <a id='travel' href='https://b-na.github.io/travel_photography_blog/' target='blank'><img src='./Projects/travel_photography_blog.png' alt=""></img><div className='project-overlay' /></a>
+              <a id='travel' href='https://b-na.github.io/travel_photography_blog/' target='blank'><img src='./projects/travel_photography_blog.png' alt=""></img><div className='project-overlay' /></a>
               <div className='shadow'></div>
             </div>
             <a href='https://b-na.github.io/travel_photography_blog/'><p>Travel Photography Blog</p></a>
           </div>
           <div className='project'>
             <div className='link'>
-              <a id='deco' href='https://b-na.github.io/furniture_store/' target='blank'><img src='./Projects/funrniture_store.png' alt=""></img><div className='project-overlay' /></a>
+              <a id='deco' href='https://b-na.github.io/furniture_store/' target='blank'><img src='./projects/funrniture_store.png' alt=""></img><div className='project-overlay' /></a>
               <div className='shadow'></div>
             </div>
             <a href='https://b-na.github.io/furniture_store/'><p>Furniture Store</p></a>
