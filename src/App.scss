@@ -778,8 +778,11 @@ body {
         }
 
         @media (hover: none) {
-            a .project-overlay {
-                opacity: 0;
+
+            .link:hover {
+                a .project-overlay {
+                    opacity: 0;
+                }
             }
         }
 
