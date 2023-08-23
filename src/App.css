@@ -718,7 +718,7 @@ body #switch {
   box-shadow: rgba(60, 64, 67, 0.302) 0px 1px 2px 0px, rgba(60, 64, 67, 0.149) 0px 1px 3px 1px;
 }
 @media (hover: none) {
-  #projects #projects-container a .project-overlay {
+  #projects #projects-container .link:hover a .project-overlay {
     opacity: 0;
   }
 }
