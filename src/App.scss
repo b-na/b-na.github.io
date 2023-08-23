@@ -778,7 +778,9 @@ body {
         }
 
         @media (hover: none) {
-            opacity: 0;
+            a .project-overlay {
+                opacity: 0;
+            }
         }
 
         @media (hover: hover) {
