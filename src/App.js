@@ -69,7 +69,7 @@ function App() {
     toDark();
   }
 
-  $('#switch').on("click", toggle_DarkMode)
+  $('#switch').off('click').on("click", toggle_DarkMode)
 })
 
   return (
@@ -81,7 +81,7 @@ function App() {
         <div className='welcome-bg light-element' />
         <div id='nav-bar'> <Nav /></div>
         <div id='text-container'>
-          <div class='text'>
+          <div className='text'>
               <h1>Welcome</h1>
               <p>My name is Bina. I'm a front-end developer based in Germany.</p>
               <p></p>
@@ -125,8 +125,8 @@ function App() {
         </div>
       </section>
       <section id='projects'>
-          <div class='projects-bg dark-element'></div>
-          <div class='projects-bg light-element'></div>
+          <div className='projects-bg dark-element'></div>
+          <div className='projects-bg light-element'></div>
         <div id='projects-container'>
           <h2>My Prodjects: </h2>
           <div className='project'>
@@ -146,8 +146,8 @@ function App() {
         </div>
       </section>
       <section id='contact'>
-        <div class='contact-bg dark-element'></div>
-        <div class='contact-bg light-element'></div>
+        <div className='contact-bg dark-element'></div>
+        <div className='contact-bg light-element'></div>
         <div id='contact-container'>
           <p>Liked my projects? Contact me or just follow me on social media:</p>
           <a href='mailto:binawagner.contact@gmail.com' target='blanck'><FontAwesomeIcon id='mail-icon' icon={ faEnvelope } /></a>
