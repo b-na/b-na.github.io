@@ -113,9 +113,11 @@ body #switch {
   padding: 10px;
   z-index: 99;
 }
-body #switch:hover {
-  color: rgb(255, 232, 170);
-  transition: all 0.3s ease;
+@media (hover: hover) {
+  body #switch:hover {
+    color: rgb(255, 232, 170);
+    transition: all 0.3s ease;
+  }
 }
 
 #welcome {
@@ -196,11 +198,11 @@ body #switch:hover {
   transform-origin: center right;
   transform: rotate(45deg);
 }
-#welcome #nav-bar a:hover {
+#welcome #nav-bar a:hover, #welcome #nav-bar a:active {
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: rgba(0, 0, 0, 0.102) 0px 0px 5px 0px, rgba(0, 0, 0, 0.102) 0px 0px 1px 0px;
 }
-#welcome #nav-bar a:hover::before {
+#welcome #nav-bar a:hover::before, #welcome #nav-bar a:active::before {
   animation: glare 0.8s ease;
 }
 @keyframes glare {
@@ -434,8 +436,6 @@ body #switch:hover {
   bottom: -25px;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0);
-  background-size: cover;
-  background-repeat: no-repeat;
   background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
 }
 #tools #tools-container {
@@ -482,25 +482,25 @@ body #switch:hover {
   transition: all 0.3s ease;
   font-size: 3rem;
 }
-#tools #tools-container #tool-list #html-icon:hover {
+#tools #tools-container #tool-list #html-icon:hover, #tools #tools-container #tool-list #html-icon:active {
   color: rgb(227, 76, 38);
 }
-#tools #tools-container #tool-list #css-icon:hover {
+#tools #tools-container #tool-list #css-icon:hover, #tools #tools-container #tool-list #css-icon:active {
   color: rgb(38, 77, 228);
 }
-#tools #tools-container #tool-list #js-icon:hover {
+#tools #tools-container #tool-list #js-icon:hover, #tools #tools-container #tool-list #js-icon:active {
   color: rgb(240, 219, 79);
 }
-#tools #tools-container #tool-list #react-icon:hover {
+#tools #tools-container #tool-list #react-icon:hover, #tools #tools-container #tool-list #react-icon:active {
   color: rgb(4, 216, 249);
 }
-#tools #tools-container #tool-list #sass-icon:hover {
+#tools #tools-container #tool-list #sass-icon:hover, #tools #tools-container #tool-list #sass-icon:active {
   color: rgb(204, 102, 153);
 }
-#tools #tools-container #tool-list #git-icon:hover {
+#tools #tools-container #tool-list #git-icon:hover, #tools #tools-container #tool-list #git-icon:active {
   color: rgb(243, 79, 41);
 }
-#tools #tools-container #tool-list #github-icon:hover {
+#tools #tools-container #tool-list #github-icon:hover, #tools #tools-container #tool-list #github-icon:active {
   color: rgb(98, 43, 207);
 }
 #tools #tools-container::before {
@@ -591,8 +591,6 @@ body #switch:hover {
   bottom: -25px;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0);
-  background-size: cover;
-  background-repeat: no-repeat;
   background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
 }
 #projects .dark-element {
@@ -719,17 +717,24 @@ body #switch:hover {
 #projects #projects-container .link::after {
   box-shadow: rgba(60, 64, 67, 0.302) 0px 1px 2px 0px, rgba(60, 64, 67, 0.149) 0px 1px 3px 1px;
 }
-#projects #projects-container .link:hover {
-  transform: scale(1.05);
+@media (hover: none) {
+  #projects #projects-container {
+    opacity: 0;
+  }
 }
-#projects #projects-container .link:hover .shadow {
-  top: 15px;
-  right: -5px;
-  left: 5px;
-  bottom: -15px;
-}
-#projects #projects-container .link:hover a .project-overlay {
-  opacity: 0;
+@media (hover: hover) {
+  #projects #projects-container .link:hover {
+    transform: scale(1.05);
+  }
+  #projects #projects-container .link:hover .shadow {
+    top: 15px;
+    right: -5px;
+    left: 5px;
+    bottom: -15px;
+  }
+  #projects #projects-container .link:hover a .project-overlay {
+    opacity: 0;
+  }
 }
 #projects #projects-container p {
   color: black;
@@ -738,14 +743,15 @@ body #switch:hover {
   padding: 20px 0;
   font-family: "Chelsea Market", cursive;
   border-radius: 5px;
-  background-color: rgba(95, 95, 95, 0.192);
+  background-color: rgba(0, 0, 0, 0.321);
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   box-shadow: rgba(60, 64, 67, 0.302) 0px 1px 2px 0px, rgba(60, 64, 67, 0.149) 0px 1px 3px 1px;
   transition: all 0.3s ease;
 }
-#projects #projects-container p:hover {
-  background-color: rgba(0, 0, 0, 0.502);
+#projects #projects-container p:hover, #projects #projects-container p:active {
+  background-color: rgba(0, 0, 0, 0.55);
+  text-shadow: 0px 0px 7px rgb(255, 255, 255), 0px 0px 7px rgb(255, 255, 255);
 }
 @media screen and (min-height: 1000px) and (min-width: 750px) {
   #projects #projects-container {
@@ -814,16 +820,16 @@ body #switch:hover {
     font-size: 11vw;
   }
 }
-#contact #contact-container #mail-icon:hover {
+#contact #contact-container #mail-icon:hover, #contact #contact-container #mail-icon:active {
   color: rgb(79, 140, 197);
 }
-#contact #contact-container #insta-icon:hover {
+#contact #contact-container #insta-icon:hover, #contact #contact-container #insta-icon:active {
   color: rgb(195, 42, 163);
 }
-#contact #contact-container #fb-icon:hover {
+#contact #contact-container #fb-icon:hover, #contact #contact-container #fb-icon:active {
   color: rgb(59, 89, 152);
 }
-#contact #contact-container #github-icon:hover {
+#contact #contact-container #github-icon:hover, #contact #contact-container #github-icon:active {
   color: rgb(98, 43, 207);
 }
 #contact .contact-bg {
@@ -886,6 +892,9 @@ body.dark #photo-container::before, body.dark .link::before {
 }
 body.dark .project p, body.dark h2, body.dark #welcome a {
   text-shadow: -3px -3px 8px rgb(132, 56, 255), 3px 3px 8px rgb(59, 56, 255) !important;
+}
+body.dark #projects-container p:hover, body.dark #projects-container p:active {
+  text-shadow: -3px -3px 15px rgb(132, 56, 255), 3px 3px 15px rgb(59, 56, 255) !important;
 }
 body.dark #contact-container {
   background-color: rgb(26, 26, 26) !important;
