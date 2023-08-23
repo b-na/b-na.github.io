@@ -726,7 +726,6 @@ body {
                         left: 0;
                         right: 0;
                         background-color: rgb(0, 0, 0);
-                        opacity: 0.5;
                         transition: opacity 0.5s ease;
                     }
                 }
@@ -775,6 +774,15 @@ body {
 
         .link::after {
             box-shadow: $shadow;
+        }
+
+        @media (hover: hover) {
+
+            .link {
+                a .project-overlay {
+                    opacity: 0.5;
+                }
+            }
         }
 
         @media (hover: none) {
