@@ -45,7 +45,6 @@
 html {
   width: 100vw;
   background-color: rgb(26, 26, 26);
-  overflow-x: hidden;
 }
 
 p, h2 {
@@ -75,6 +74,7 @@ a, #switch {
 }
 
 body {
+  overflow-x: hidden;
   position: relative;
   z-index: -1;
   width: 100%;
