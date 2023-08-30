@@ -45,6 +45,7 @@
 html {
   width: 100vw;
   background-color: rgb(26, 26, 26);
+  overflow-x: hidden;
 }
 
 p, h2 {

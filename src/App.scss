@@ -48,6 +48,7 @@ $shadow: rgba(60, 64, 67, 0.302) 0px 1px 2px 0px, rgba(60, 64, 67, 0.149) 0px 1p
 html {
     width: 100vw;
     background-color: rgb(26, 26, 26);
+    overflow-x: hidden;
 }
 
 p, h2 {
