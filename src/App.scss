@@ -77,7 +77,7 @@ a, #switch{
 
 body {
     position: relative;
-    z-index: 0;
+    z-index: -1;
     width: 100%;
     height: max-content;
     cursor: url('./cursor-black.svg'), auto;
@@ -93,6 +93,7 @@ body {
         height: calc(100% - 100vh);
         font-size: 2rem;
         pointer-events: none;
+        z-index: 99;
 
         a {
             position: relative;
@@ -105,7 +106,6 @@ body {
             right: 0;
             color: rgb(0, 0, 0);
             padding: 1rem;
-            z-index: 99;
             pointer-events: all;
         }
 
@@ -120,14 +120,17 @@ body {
         z-index: 99;
     }
 
-    #switch:hover {
+    @media (hover: hover) {
+        #switch:hover {
         color:rgb(255, 232, 170);
         transition: all 0.3s ease;
+        }
     }
 }
 
 #welcome {
     position: relative;
+    z-index: 0;
     min-height: 100vh;
     height: max-content;
     width: 100%;
@@ -188,6 +191,7 @@ body {
 
         a {
             position: relative;
+            z-index: 1;
             margin: 0;
             padding: 15px;
             font-size: 1.5rem;
@@ -213,12 +217,12 @@ body {
             transform: rotate(45deg);
         }
 
-        a:hover {
+        a:hover, a:active{
             border: 1px solid rgba(0, 0, 0, 0.2);
             box-shadow: rgba(0, 0, 0, 0.102) 0px 0px 5px 0px, rgba(0, 0, 0, 0.102) 0px 0px 1px 0px;
         }
 
-        a:hover::before {
+        a:hover::before, a:active::before {
             -webkit-animation: glare 0.8s ease;
             animation: glare 0.8s ease;
         }
@@ -294,7 +298,6 @@ body {
 
 #about {
     position: relative;
-    z-index: 1;
     width: 100%;
     height: max-content;
     min-height: 100vh;
@@ -355,8 +358,12 @@ body {
                 height: 100%;
                 max-height: 400px;
                 border-radius: 5px;
+                transform: translateZ(0);
+                z-index: 0;
 
                 img {
+                    position: relative;
+                    z-index: 2;
                     width: 100%;
                     height: 100%;
                     max-height: 400px;
@@ -370,6 +377,8 @@ body {
 
             #photo-container::before, #photo-container::after {
                 position: absolute;
+                transform: translateZ(0);
+                z-index: 1;
                 top: -2px;
                 left: -2px;
                 right: -2px;
@@ -383,12 +392,10 @@ body {
             }
         
             #photo-container::before {
-                z-index: -2;
                 filter: blur(5px);
             }
         
             #photo-container::after {
-                z-index: -1;
                 box-shadow: $shadow;
             }
         }
@@ -459,8 +466,6 @@ body {
         bottom: -25px;
         border-radius: 5px;
         background-color: rgba(255, 255, 255, 0);
-        background-size: cover;
-        background-repeat: no-repeat;
         background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
     }
 
@@ -512,31 +517,31 @@ body {
                 font-size: 3rem;
             }
 
-            #html-icon:hover {
+            #html-icon:hover, #html-icon:active {
                 color: rgb(227, 76, 38);
             }
 
-            #css-icon:hover {
+            #css-icon:hover, #css-icon:active {
                 color: rgb(38, 77, 228);
             }
 
-            #js-icon:hover {
+            #js-icon:hover, #js-icon:active {
                 color: rgb(240, 219, 79);
             }
 
-            #react-icon:hover {
+            #react-icon:hover, #react-icon:active {
                 color: rgb(4, 216, 249);
             }
 
-            #sass-icon:hover {
+            #sass-icon:hover , #sass-icon:active  {
                 color: rgb(204, 102, 153);
             }
 
-            #git-icon:hover {
+            #git-icon:hover, #git-icon:active {
                 color: rgb(243, 79, 41);
             }
 
-            #github-icon:hover {
+            #github-icon:hover, #github-icon:active {
                 color: rgb(98, 43, 207)
                 ;
             }
@@ -636,8 +641,6 @@ body {
         bottom: -25px;
         border-radius: 5px;
         background-color: rgba(255, 255, 255, 0);
-        background-size: cover;
-        background-repeat: no-repeat;
         background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
     }
     
@@ -703,6 +706,7 @@ body {
                 height: 90vh;
                 max-width: 400px;
                 max-height: 400px;
+                transform: translateZ(0);
                 z-index: 1;
                 transition: scale 0.3s ease;
 
@@ -713,6 +717,7 @@ body {
                     height: 100%;
                     overflow: hidden;
                     border-radius: 5px;
+                    z-index: 1;
 
                     .project-overlay {
                         position: absolute;
@@ -721,7 +726,6 @@ body {
                         left: 0;
                         right: 0;
                         background-color: rgb(0, 0, 0);
-                        opacity: 0.5;
                         transition: opacity 0.5s ease;
                     }
                 }
@@ -735,6 +739,8 @@ body {
         }
 
         .link::before, .link::after {
+            transform: translateZ(0);
+            z-index: 0;
             border-radius: 5px;
             top: -2px;
             left: -2px;
@@ -749,7 +755,6 @@ body {
         }
 
         .link::before {
-            z-index: -2;
             filter: blur(5px);
         }
 
@@ -768,23 +773,43 @@ body {
         }
 
         .link::after {
-            z-index: -1;
             box-shadow: $shadow;
         }
 
-        .link:hover {
-            -webkit-transform: scale(1.05);
-            transform: scale(1.05);
+        @media (hover: hover) {
 
-            .shadow {
-                top: 15px;
-                right: -5px;
-                left: 5px;
-                bottom: -15px;
+            .link {
+                a .project-overlay {
+                    opacity: 0.5;
+                }
             }
+        }
 
-            a .project-overlay {
-                opacity: 0;
+        @media (hover: none) {
+
+            .link {
+                a .project-overlay {
+                    opacity: 0;
+                }
+            }
+        }
+
+        @media (hover: hover) {
+
+            .link:hover {
+                -webkit-transform: scale(1.05);
+                transform: scale(1.05);
+    
+                .shadow {
+                    top: 15px;
+                    right: -5px;
+                    left: 5px;
+                    bottom: -15px;
+                }
+    
+                a .project-overlay {
+                    opacity: 0;
+                }
             }
         }
 
@@ -795,15 +820,16 @@ body {
             padding: 20px 0;
             font-family: 'Chelsea Market', cursive;
             border-radius: 5px;
-            background-color: rgba(95, 95, 95, 0.192);
+            background-color: rgba(0, 0, 0, 0.321);
             -webkit-backdrop-filter: blur(2px);
             backdrop-filter: blur(2px);
             box-shadow: $shadow;
             transition: all 0.3s ease;
         }
 
-        p:hover {
-            background-color: rgba(0, 0, 0, 0.502);
+        p:hover, p:active {
+            background-color: rgba(0, 0, 0, 0.55);
+            text-shadow: -0px -0px 7px rgb(255, 255, 255), 0px 0px 7px rgb(255, 255, 255);
         }
 
         @media screen and (min-height: 1000px) and (min-width: 750px) {
@@ -879,19 +905,19 @@ body {
             }
         }
 
-        #mail-icon:hover {
+        #mail-icon:hover, #mail-icon:active {
             color: rgb(79, 140, 197);
         }
 
-        #insta-icon:hover {
+        #insta-icon:hover, #insta-icon:active {
             color: rgb(195, 42, 163);
         }
 
-        #fb-icon:hover {
+        #fb-icon:hover, #fb-icon:active {
             color: rgb(59, 89, 152);
         }
 
-        #github-icon:hover {
+        #github-icon:hover, #github-icon:active {
             color: rgb(98, 43, 207);
         }
     }
@@ -974,6 +1000,13 @@ body.dark {
 
     .project p, h2, #welcome a{
         text-shadow: -3px -3px 8px rgb(132, 56, 255), 3px 3px 8px rgb(59, 56, 255) !important;
+    }
+
+    #projects-container {
+
+        p:hover, p:active {
+            text-shadow: -3px -3px 15px rgb(132, 56, 255), 3px 3px 15px rgb(59, 56, 255) !important;
+        }
     }
 
     #contact-container {
