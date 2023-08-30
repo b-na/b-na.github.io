@@ -80,7 +80,7 @@ body {
   height: -moz-max-content;
   height: max-content;
   cursor: url("./cursor-black.svg"), auto;
-  background: linear-gradient(0deg, rgb(150, 211, 255), rgb(203, 191, 255));
+  background: linear-gradient(135deg, rgb(163, 199, 240), rgb(253, 218, 177), rgb(203, 191, 255));
   transition: all 0.9s ease;
 }
 body #up {
@@ -700,14 +700,9 @@ body #switch {
 #projects #projects-container .link::before {
   filter: blur(5px);
 }
-#projects #projects-container .link .shadow {
-  position: absolute;
+#projects #projects-container .link {
+  position: relative;
   z-index: -1;
-  content: "";
-  top: 15px;
-  right: -15px;
-  left: 15px;
-  bottom: -15px;
   border-radius: 5px;
   transition: all 0.3s ease;
   background-color: rgba(255, 255, 255, 0);
@@ -728,13 +723,7 @@ body #switch {
 }
 @media (hover: hover) {
   #projects #projects-container .link:hover {
-    transform: scale(1.05);
-  }
-  #projects #projects-container .link:hover .shadow {
-    top: 15px;
-    right: -5px;
-    left: 5px;
-    bottom: -15px;
+    scale: 1.05;
   }
   #projects #projects-container .link:hover a .project-overlay {
     opacity: 0;
@@ -763,7 +752,7 @@ body #switch {
   }
 }
 @media screen and (max-width: 450px) {
-  #projects #projects-container .link .shadow {
+  #projects #projects-container .link {
     top: 0;
     bottom: 0;
     left: 0;
